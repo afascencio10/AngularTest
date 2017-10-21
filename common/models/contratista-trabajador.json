@@ -1,0 +1,39 @@
+{
+  "name": "contratista_trabajador",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "id_contratista": {
+      "type": "number",
+      "required": true
+    },
+    "id_trabajador": {
+      "type": "number",
+      "required": true
+    },
+    "fecha_inicio": {
+      "type": "date"
+    },
+    "fecha_fin": {
+      "type": "date"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "contratista": {
+      "type": "belongsTo",
+      "model": "contratista",
+      "foreignKey": "id_contratista"
+    },
+    "trabajador": {
+      "type": "belongsTo",
+      "model": "trabajador",
+      "foreignKey": "id_trabajador"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

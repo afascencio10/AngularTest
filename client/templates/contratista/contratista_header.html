@@ -1,0 +1,31 @@
+<!-- Dropdown Structure -->
+<ul id="dropdown2" class="dropdown-content">
+  <li><a ui-sref="obrasCont">Obras</a></li>
+  <li class="divider"></li>
+  <li><a ui-sref="dashCont">Dashboard</a></li>
+</ul>
+<nav>
+  <div class="nav-wrapper blue-grey darken-3">
+    <a href="#!" class="brand-logo center">
+      <img src="img/logoFenosa.png" class="responsive-img icon-fenosa">
+    </a>
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <li><a ng-click="cerrarSession()">Cerrar Sesión</a></li>
+    </ul>
+  </div>
+</nav>
+
+<script>
+  $( document ).ready(function(){
+    $(".dropdown-button").dropdown({
+      belowOrigin: true,
+      alignment: 'left',
+      inDuration: 200,
+      outDuration: 150,
+      constrain_width: true,
+      hover: true,
+      gutter: 1
+    });
+    $(".button-collapse").sideNav();
+  })
+</script>

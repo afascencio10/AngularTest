@@ -1,0 +1,33 @@
+{
+  "name": "perfil_cuenta",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "id_cuenta": {
+      "type": "number",
+      "required": true
+    },
+    "id_perfil": {
+      "type": "number",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "cuenta": {
+      "type": "belongsTo",
+      "model": "cuenta",
+      "foreignKey": "id_cuenta"
+    },
+    "perfil": {
+      "type": "belongsTo",
+      "model": "perfil",
+      "foreignKey": "id_perfil"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

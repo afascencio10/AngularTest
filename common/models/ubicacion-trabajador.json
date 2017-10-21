@@ -1,0 +1,39 @@
+{
+  "name": "ubicacion_trabajador",
+  "plural": "ubicacion_trabajadores",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "id_ubicacion": {
+      "type": "number",
+      "required": true
+    },
+    "id_trabajador": {
+      "type": "number",
+      "required": true
+    },
+    "activo": {
+      "type": "boolean",
+      "required": true,
+      "default": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "trabajador": {
+      "type": "belongsTo",
+      "model": "trabajador",
+      "foreignKey": "id_trabajador"
+    },
+    "localizacion": {
+      "type": "belongsTo",
+      "model": "localizacion",
+      "foreignKey": "id_ubicacion"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

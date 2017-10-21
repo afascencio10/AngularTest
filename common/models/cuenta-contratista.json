@@ -1,0 +1,33 @@
+{
+  "name": "cuenta_contratista",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "id_contratista": {
+      "type": "number",
+      "required": true
+    },
+    "id_cuenta": {
+      "type": "number",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "contratista": {
+      "type": "belongsTo",
+      "model": "contratista",
+      "foreignKey": "id_contratista"
+    },
+    "cuenta": {
+      "type": "belongsTo",
+      "model": "cuenta",
+      "foreignKey": "id_cuenta"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

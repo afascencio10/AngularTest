@@ -1,0 +1,35 @@
+{
+  "loopback-component-explorer": {
+    "mountPath": "/explorer"
+  },
+  "loopback-component-auto-migrate": {
+    "enabled": true,
+    "raiseError": false,
+    "migration": "auto-update",
+    "models": [
+      "cuenta",
+      "contratista",
+      "contacto",
+      "cuenta_contratista",
+      "contacto_contratista",
+      "perfil",
+      "perfil_cuenta",
+      "servicio",
+      "brigada",
+      "servicio_brigada",
+      "vehiculo",
+      "vehiculo_contratista",
+      "servicios_vehiculos",
+      "servicio_vehiculo",
+      "trabajador",
+      "funcion",
+      "contratista_trabajador",
+      "funcion_trabajador",
+      "localizacion",
+      "ubicacion_brigada",
+      "ubicacion_trabajador",
+      "ubicacion_vehiculo"
+    ],
+    "fixtures": "./test/fixtures/"
+  }
+}

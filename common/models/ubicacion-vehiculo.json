@@ -1,0 +1,39 @@
+{
+  "name": "ubicacion_vehiculo",
+  "plural": "ubicacion_vehiculos",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "id_ubicacion": {
+      "type": "number",
+      "required": true
+    },
+    "id_vehiculo": {
+      "type": "number",
+      "required": true
+    },
+    "activo": {
+      "type": "boolean",
+      "required": true,
+      "default": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "vehiculo": {
+      "type": "belongsTo",
+      "model": "vehiculo",
+      "foreignKey": "id_vehiculo"
+    },
+    "localizacion": {
+      "type": "belongsTo",
+      "model": "localizacion",
+      "foreignKey": "id_ubicacion"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

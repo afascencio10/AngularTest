@@ -1,0 +1,368 @@
+<controller-header></controller-header>
+
+<div id="nuevos" class="row">
+  <div class="fixed-action-btn">
+    <a class="btn-floating btn-large red">
+      <i class="large material-icons">add</i>
+    </a>
+    <ul>
+      <li><a class="btn-floating yellow darken-1" data-target="conctacto"><i class="material-icons">contacts</i></a></li>
+      <li><a class="btn-floating yellow darken-1" data-target="brigada"><i class="material-icons">work</i></a></li>
+      <li><a class="btn-floating yellow darken-1" data-target="vehiculo"><i class="material-icons">directions_car</i></a></li>
+      <li><a class="btn-floating yellow darken-1" data-target="trabajador"><i class="material-icons">account_circle</i></a></li>
+    </ul>
+  </div>
+</div>
+
+<div id="contratista" class="row">
+  <h3 class="center">Contratista</h3>
+  <form class="col s12" ng-model="contratista">
+    <div class="row">
+      <div class="col s6">
+        <label for="nombre">Nombre</label>
+        <input id="nombre" type="text" ng-model="contratista.nombre" ng-value="contratista.nombre" class="validate">
+      </div>
+      <div class="col s6">
+        <label for="razon_Social">Razón Social</label>
+        <input id="razon_Social" ng-model="contratista.razon_social" ng-value="contratista.razon_social" type="text" class="validate">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col s12">
+        <label for="disabled">Rut</label>
+        <input disabled id="disabled" ng-model="contratista.rut" ng-value="contratista.rut" type="text" class="validate">
+      </div>
+    </div>
+  </form>
+</div>
+
+<div id="contactos" class="row">
+  <ul class="collapsible popout center" data-collapsible="accordion">
+    <li class="collapsible-header"><h4>Contactos</h4></li>
+    <li ng-repeat="contacto in contactos">
+      <div class="collapsible-header">
+        <i class="material-icons">contacts</i>{{contacto.nombre}} {{contacto.apellido}}
+        <a class="right" ng-click="editContacto(contacto)">
+          <i class="material-icons right">mode_edit</i>
+        </a>
+      </div>
+      <div class="collapsible-body">
+        <ul class="collection">
+          <li class="collection-item">{{contacto.nombre}} {{contacto.apellido}}</li>
+          <li class="collection-item">{{contacto.cargo}}</li>
+          <li class="collection-item">{{contacto.telefono}}</li>
+          <li class="collection-item">{{contacto.movil}}</li>
+          <li class="collection-item">{{contacto.tipo_localizacion}}, {{contacto.localizacion}}</li>
+          <li class="collection-item">{{contacto.activo}}</li>
+        </ul>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<div id="Brigadas" class="row">
+  <ul class="collapsible popout center" data-collapsible="accordion">
+    <li class="collapsible-header"><h4>Brigadas por Servicio</h4></li>
+    <li ng-repeat="brigada in brigadas">
+      <div class="collapsible-header">
+        <i class="material-icons">work</i>{{brigada.servicio.nombre}}, {{brigada.numero_brigadas}} brigadas, {{brigada.ubicacion.nombre}}
+        <a class="right" ng-click="editBrigada(brigada)">
+          <i class="material-icons right">mode_edit</i>
+        </a>
+      </div>
+      <div class="collapsible-body">
+      </div>
+    </li>
+  </ul>
+</div>
+
+<div id="vehiculos/trabajadores" class="row">
+  <ul class="collapsible popout center col m6" data-collapsible="accordion">
+    <li class="collapsible-header"><h4>Vehiculos</h4></li>
+    <li ng-repeat="vehiculo in vehiculos">
+      <div class="collapsible-header">
+        <i class="material-icons">directions_car</i>{{vehiculo.placa_patente}}
+        <a class="right" ng-click="editVehiculo(vehiculo)">
+          <i class="material-icons right">mode_edit</i>
+        </a>
+      </div>
+      <div class="collapsible-body">
+        <ul class="collection">
+          <li class="collection-item">{{vehiculo.placa_patente}}</li>
+          <li class="collection-item">{{vehiculo.anio | date:"yyyy"}}</li>
+          <li class="collection-item" ng-if="vehiculo.activo">En Servicio</li>
+          <li class="collection-item" ng-if="!vehiculo.activo">Fuera de Servicio</li>
+          <li class="collection-item">{{vehiculo.servicio.serviciosVehiculos.nombre}}</li>
+          <li class="collection-item">{{vehiculo.ubicacion.localizacion.nombre}}</li>
+        </ul>
+      </div>
+    </li>
+  </ul>
+  <ul class="collapsible popout center col m6 s12" data-collapsible="accordion">
+    <li class="collapsible-header"><h4>Personal en Terreno</h4></li>
+    <li ng-repeat="personal in trabajadores">
+      <div class="collapsible-header">
+        <i class="material-icons">account_circle</i>{{personal.nombre}} {{personal.apellido}}
+        <a class="right" ng-click="editTrabajador(personal)">
+          <i class="material-icons right">mode_edit</i>
+        </a>
+      </div>
+      <div class="collapsible-body">
+        <ul class="collection">
+          <li class="collection-item">{{personal.nombre}} {{personal.apellido}}</li>
+          <li class="collection-item">{{personal.rut}}</li>
+          <li class="collection-item">{{personal.ubicacion.localizacion.nombre}}</li>
+          <li class="collection-item" ng-repeat="funcion in personal.funciones">Funcion {{$index+1}}: {{funcion.funcion.nombre}}</li>
+        </ul>
+      </div>
+    </li>
+  </ul>
+</div>
+
+
+<div id="conctacto" class="modal">
+  <div class="modal-content">
+    <h4>Contacto</h4>
+    <div class="row">
+      <form class="col s12" ng-model="contacto">
+        <div class="row">
+          <div class="input-field col s6">
+            <input id="first_name" type="text" class="validate" ng-model="contacto.nombre">
+            <label for="first_name">Nombre</label>
+          </div>
+          <div class="input-field col s6">
+            <input id="last_name" type="text" class="validate" ng-model="contacto.apellido">
+            <label for="last_name">Apellido</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="password" type="text" class="validate" ng-model="contacto.cargo">
+            <label for="password">Cargo</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s6">
+            <input id="movil" type="text" class="validate" ng-model="contacto.movil">
+            <label for="movil">Móvil</label>
+          </div>
+          <div class="input-field col s6">
+            <input id="telefono" type="text" class="validate" ng-model="contacto.telefono">
+            <label for="telefono">Teléfono</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="email" type="email" class="validate" ng-model="contacto.correo">
+            <label for="email">Correo</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col s12">
+            <label>Tipo Localización</label>
+            <select class="browser-default" ng-model="contacto.tipo_localizacion" required="required">
+              <option value="" disabled>Tipo</option>
+              <option ng-value="Zona">Zona</option>
+              <option ng-value="Establecimiento">Establecimiento</option>
+            </select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col s12">
+            <label>Localización</label>
+            <select class="browser-default" ng-model="contacto.localizacion" required="required">
+              <option value="" disabled>Localización</option>
+              <option ng-repeat="localizacion in localizaciones | filter: contacto.tipo_localizacion" ng-value="localizacion.nombre">{{localizacion.nombre}}</option>
+            </select>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <a class=" modal-action modal-close waves-effect waves-green btn" ng-click="crearContacto(contacto)" ng-hide="editing">Crear Contacto</a>
+    <a class=" modal-action modal-close waves-effect waves-green btn" ng-click="updateContacto(contacto)" ng-show="editing">Editar Contacto</a>
+    <a class=" modal-action modal-close waves-effect waves-green btn-flat" ng-click="closeModal()">Cancelar</a>
+  </div>
+</div>
+
+<div id="vehiculo" class="modal">
+  <div class="modal-content">
+    <h4>Vehiculo</h4>
+    <div class="row">
+      <form class="col s12" ng-model="vehiculo">
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="placa" type="text" class="validate" ng-model="vehiculo.placa_patente">
+            <label for="placa">Placa patente</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col s12">
+            <label for="anio">Año</label>
+            <input id="anio" type="text" class="datepicker" ng-model="vehiculo.anio">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col s12">
+            <label>Servicio</label>
+            <select class="browser-default" ng-model="vehiculo.id_servicio" required="required">
+              <option value="" disabled>Servicio</option>
+              <option ng-repeat="servicio in servicios_vehiculos" ng-value="servicio.id">{{servicio.nombre}}</option>
+            </select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col s12">
+            <label>Tipo Localización</label>
+            <select class="browser-default" ng-model="vehiculo.tipo_localizacion" required="required">
+              <option value="" disabled>Tipo</option>
+              <option ng-value="Zona">Zona</option>
+              <option ng-value="Establecimiento">Establecimiento</option>
+            </select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col s12">
+            <label>Localización</label>
+            <select class="browser-default" ng-model="vehiculo.localizacion" required="required">
+              <option value="" disabled>Localización</option>
+              <option ng-repeat="localizacion in localizaciones | filter: contacto.tipo_localizacion" ng-value="localizacion.id">{{localizacion.nombre}}</option>
+            </select>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <a class=" modal-action modal-close waves-effect waves-green btn" ng-click="crearVehiculo(vehiculo)" ng-hide="editing">Crear Vehiculo</a>
+    <a class=" modal-action modal-close waves-effect waves-green btn" ng-click="updateVehiculo(vehiculo)" ng-show="editing">Editar Vehiculo</a>
+    <a class=" modal-action modal-close waves-effect waves-green btn-flat" ng-click="closeModal()">Cancelar</a>
+  </div>
+</div>
+
+<div id="trabajador" class="modal">
+  <div class="modal-content">
+    <h4>Trabajador</h4>
+    <div class="row">
+      <form class="col s12" ng-model="trabajador">
+        <div class="row">
+          <div class="input-field col s6">
+            <input id="name" type="text" class="validate" ng-model="trabajador.nombre">
+            <label for="name">Nombre</label>
+          </div>
+          <div class="input-field col s6">
+            <input id="apellido" type="text" class="validate" ng-model="trabajador.apellido">
+            <label for="apellido">Apellido</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="rut" type="text" class="validate" ng-model="trabajador.rut">
+            <label for="rut">Rut</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col s12">
+            <label>Funcion Principal</label>
+            <select class="browser-default" ng-model="trabajador.funcionP.id_funcion" required="required">
+              <option value="" disabled>Servicio</option>
+              <option ng-repeat="funcion in funciones_trabajadores" ng-value="funcion.id">{{funcion.nombre}}</option>
+            </select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col s12">
+            <label>Funcion 2</label>
+            <select class="browser-default" ng-model="trabajador.funcion2.id_funcion" required="required">
+              <option value="" disabled>Servicio</option>
+              <option ng-repeat="funcion in funciones_trabajadores" ng-value="funcion.id">{{funcion.nombre}}</option>
+            </select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col s12">
+            <label>Funcion 3</label>
+            <select class="browser-default" ng-model="trabajador.funcion3.id_funcion" required="required">
+              <option value="" disabled>Servicio</option>
+              <option ng-repeat="funcion in funciones_trabajadores" ng-value="funcion.id">{{funcion.nombre}}</option>
+            </select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col s12">
+            <label>Tipo Localización</label>
+            <select class="browser-default" ng-model="trabajador.tipo_localizacion" required="required">
+              <option value="" disabled>Tipo</option>
+              <option ng-value="Zona">Zona</option>
+              <option ng-value="Establecimiento">Establecimiento</option>
+            </select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col s12">
+            <label>Localización</label>
+            <select class="browser-default" ng-model="trabajador.localizacion" required="required">
+              <option value="" disabled>Localización</option>
+              <option ng-repeat="localizacion in localizaciones | filter: contacto.tipo_localizacion" ng-value="localizacion.id">{{localizacion.nombre}}</option>
+            </select>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <a class=" modal-action modal-close waves-effect waves-green btn" ng-click="crearTrabajador(trabajador)" ng-hide="editing">Crear Trabajador</a>
+    <a class=" modal-action modal-close waves-effect waves-green btn" ng-click="updateTrabajador(trabajador)" ng-show="editing">Editar Trabajador</a>
+    <a class=" modal-action modal-close waves-effect waves-green btn-flat" ng-click="closeModal()">Cancelar</a>
+  </div>
+</div>
+
+<div id="brigada" class="modal">
+  <div class="modal-content">
+    <h4>Brigada</h4>
+    <div class="row">
+      <form class="col s12" ng-model="brigada">
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="Numero" type="number" class="validate" ng-model="brigada.numero_brigadas">
+            <label for="Numero">Numero de brigadas</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col s12">
+            <label>Servicio</label>
+            <select class="browser-default" ng-model="brigada.id_servicio" required="required">
+              <option value="" disabled>Servicio</option>
+              <option ng-repeat="servicio in servicios_brigadas" ng-value="servicio.id">{{servicio.nombre}}</option>
+            </select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col s12">
+            <label>Tipo Localización</label>
+            <select class="browser-default" ng-model="brigada.tipo_localizacion" required="required">
+              <option value="" disabled>Tipo</option>
+              <option ng-value="Zona">Zona</option>
+              <option ng-value="Establecimiento">Establecimiento</option>
+            </select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col s12">
+            <label>Localización</label>
+            <select class="browser-default" ng-model="brigada.localizacion" required="required">
+              <option value="" disabled>Localización</option>
+              <option ng-repeat="localizacion in localizaciones | filter: contacto.tipo_localizacion" ng-value="localizacion.id">{{localizacion.nombre}}</option>
+            </select>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <a class=" modal-action modal-close waves-effect waves-green btn" ng-click="crearBrigada(brigada)" ng-hide="editing">Crear Brigada</a>
+    <a class=" modal-action modal-close waves-effect waves-green btn" ng-click="updateBrigada(brigada)" ng-show="editing">Editar Brigada</a>
+    <a class=" modal-action modal-close waves-effect waves-green btn-flat" ng-click="closeModal()">Cancelar</a>
+  </div>
+</div>

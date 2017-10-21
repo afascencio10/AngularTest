@@ -1,0 +1,33 @@
+{
+  "name": "contacto_contratista",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "id_contratista": {
+      "type": "number",
+      "required": true
+    },
+    "id_contacto": {
+      "type": "number",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "contacto": {
+      "type": "belongsTo",
+      "model": "contacto",
+      "foreignKey": "id_contacto"
+    },
+    "contratista": {
+      "type": "belongsTo",
+      "model": "contratista",
+      "foreignKey": "id_contratista"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

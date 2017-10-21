@@ -1,0 +1,33 @@
+{
+  "name": "vehiculo_contratista",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "id_vehiculo": {
+      "type": "number",
+      "required": true
+    },
+    "id_contratista": {
+      "type": "number",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "contratista": {
+      "type": "belongsTo",
+      "model": "contratista",
+      "foreignKey": "id_contratista"
+    },
+    "vehiculo": {
+      "type": "belongsTo",
+      "model": "vehiculo",
+      "foreignKey": "id_vehiculo"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

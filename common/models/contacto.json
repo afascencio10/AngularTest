@@ -1,0 +1,62 @@
+{
+  "name": "contacto",
+  "plural": "contactos",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "nombre": {
+      "type": "string",
+      "required": true
+    },
+    "apellido": {
+      "type": "string",
+      "required": true
+    },
+    "correo": {
+      "type": "string",
+      "required": true
+    },
+    "cargo": {
+      "type": "string",
+      "required": true
+    },
+    "movil": {
+      "type": "string",
+      "required": true
+    },
+    "telefono": {
+      "type": "string"
+    },
+    "tipo_localizacion": {
+      "type": "string",
+      "required": true
+    },
+    "localizacion": {
+      "type": "string",
+      "required": true
+    },
+    "activo": {
+      "type": "boolean",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "contratista": {
+      "type": "hasMany",
+      "model": "contratista",
+      "foreignKey": "id_contacto",
+      "through": "contacto_contratista"
+    },
+    "contactoContratista": {
+      "type": "hasMany",
+      "model": "contacto_contratista",
+      "foreignKey": "id_contacto"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

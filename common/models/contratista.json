@@ -1,0 +1,57 @@
+{
+  "name": "contratista",
+  "plural": "contratistas",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "rut": {
+      "type": "string",
+      "required": true
+    },
+    "razon_social": {
+      "type": "string",
+      "required": true
+    },
+    "nombre": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "cuenta_contratista": {
+      "type": "hasMany",
+      "model": "cuenta",
+      "foreignKey": "id_contratista",
+      "through": "cuenta_contratista"
+    },
+    "contactos": {
+      "type": "hasMany",
+      "model": "contacto",
+      "foreignKey": "id_contratista",
+      "through": "contacto_contratista"
+    },
+    "vehiculos_contratista": {
+      "type": "hasMany",
+      "model": "vehiculo",
+      "foreignKey": "id_contratista",
+      "through": "vehiculo_contratista"
+    },
+    "trabajadores_contratista": {
+      "type": "hasMany",
+      "model": "trabajador",
+      "foreignKey": "id_contratista",
+      "through": "contratista_trabajador"
+    },
+    "brigadas_contratista": {
+      "type": "hasMany",
+      "model": "brigada",
+      "foreignKey": "id_contratista"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

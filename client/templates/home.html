@@ -1,0 +1,41 @@
+<nav>
+  <div class="nav-wrapper blue-grey darken-3">
+    <a href="#!" class="brand-logo center">
+      <img src="img/logoFenosa.png" class="responsive-img icon-fenosa">
+    </a>
+  </div>
+</nav>
+
+<div class="login-form">
+  <div class="row">
+    <div class="col s12 offset-m4 m6">
+      <img src="img/logoFenosa.png" class="responsive-img">
+    </div>
+  </div>
+  <div class="row">
+    <form class="col s12 offset-m3 m6">
+      <div class="row">
+        <div class="input-field col s12 m12">
+          <input id="user" type="text" class="validate" ng-model="usuario">
+          <label for="user">Usuario</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12 m12">
+          <input id="password" type="password" class="validate" ng-model="clave">
+          <label for="password">Password</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s12 m12 center">
+          <a class="btn waves-effect waves-light orange accent-2" name="action" ng-click="login(usuario, clave)">
+            Iniciar Sesión
+            <i class="material-icons right">send</i>
+          </a>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+

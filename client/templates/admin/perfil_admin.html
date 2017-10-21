@@ -1,0 +1,353 @@
+<header-admin></header-admin>
+
+<div id="nuevos" class="row">
+  <div class="fixed-action-btn">
+    <a class="btn-floating btn-large red">
+      <i class="large material-icons">add</i>
+    </a>
+    <ul>
+      <li><a class="btn-floating yellow darken-1" data-target="contrat"><i class="material-icons">contacts</i></a></li>
+      <li><a class="btn-floating yellow darken-1" data-target="servicioBrigadas"><i class="material-icons">work</i></a></li>
+      <li><a class="btn-floating yellow darken-1" data-target="servicioVehiculos"><i class="material-icons">directions_car</i></a></li>
+      <li><a class="btn-floating yellow darken-1" data-target="servicioTrabajadores"><i class="material-icons">account_circle</i></a></li>
+      <li><a class="btn-floating yellow darken-1" data-target="localizaciones"><i class="material-icons">location_on</i></a></li>
+    </ul>
+  </div>
+</div>
+
+<!--<div id="cuentas" class="row">-->
+  <!--<ul class="collapsible popout center" data-collapsible="accordion">-->
+    <!--<li class="collapsible-header"><h4>Cuentas</h4></li>-->
+    <!--<li ng-repeat="cuenta in cuentas">-->
+      <!--<div class="collapsible-header">-->
+        <!--<i class="material-icons">contacts</i>Usuario:{{cuenta.usuario}}-->
+        <!--<a class="right" ng-click="seeContratista(cuenta.id)">-->
+          <!--<i class="material-icons right">remove_red_eye</i>-->
+        <!--</a>-->
+        <!--<a class="right" ng-click="editContratista(contratista)">-->
+          <!--<i class="material-icons right">mode_edit</i>-->
+        <!--</a>-->
+      <!--</div>-->
+      <!--<div class="collapsible-body">-->
+        <!--<ul class="collection">-->
+          <!--<li class="collection-item">RUT: {{cuenta.usuario}}</li>-->
+          <!--<li class="collection-item">Clave: {{cuenta.clave}}</li>-->
+        <!--</ul>-->
+      <!--</div>-->
+    <!--</li>-->
+  <!--</ul>-->
+<!--</div>-->
+
+<div id="contratistas" class="row">
+  <ul class="collapsible popout center" data-collapsible="accordion">
+    <li class="collapsible-header"><h4>Contratista</h4></li>
+    <li ng-repeat="contratista in contratistas">
+      <div class="collapsible-header">
+        <i class="material-icons">contacts</i>Contratista:{{contratista.nombre}}
+        <a class="right" ng-click="seeContratista(contratista.cuentas[0].id)">
+          <i class="material-icons right">remove_red_eye</i>
+        </a>
+        <a class="right" ng-click="editContratista(contratista)">
+          <i class="material-icons right">mode_edit</i>
+        </a>
+      </div>
+      <div class="collapsible-body">
+        <ul class="collection">
+          <li class="collection-item">{{contratista.rut}}</li>
+          <li class="collection-item">{{contratista.nombre}}</li>
+          <li class="collection-item">{{contratista.razon_social}}</li>
+        </ul>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<div id="localizacion" class="row">
+  <ul class="collapsible popout center" data-collapsible="accordion">
+    <li class="collapsible-header"><h4>Localizaciones</h4></li>
+    <li ng-repeat="localizacion in localizaciones">
+      <div class="collapsible-header">
+        <i class="material-icons">contacts</i>Nombre: {{localizacion.nombre}}
+        <a class="right" ng-click="editLocalizacion(localizacion)">
+          <i class="material-icons right">mode_edit</i>
+        </a>
+      </div>
+      <div class="collapsible-body">
+        <ul class="collection">
+          <li class="collection-item">{{localizacion.nombre}}</li>
+          <li class="collection-item">{{localizacion.tipo}}</li>
+        </ul>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<div id="serviciosBrigadas" class="row">
+  <ul class="collapsible popout center" data-collapsible="accordion">
+    <li class="collapsible-header"><h4>Servicios Brigadas</h4></li>
+    <li ng-repeat="servicio in servicios_brigadas">
+      <div class="collapsible-header">
+        <i class="material-icons">contacts</i>Nombre: {{servicio.nombre}}
+        <a class="right" ng-click="editServicioBrigadas(servicio)">
+          <i class="material-icons right">mode_edit</i>
+        </a>
+      </div>
+      <div class="collapsible-body">
+        <ul class="collection">
+          <li class="collection-item">{{servicio.nombre}}</li>
+          <li class="collection-item">{{servicio.descripcion}}</li>
+        </ul>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<div id="serviciosVehiculos/Trabajadores" class="row">
+  <ul class="collapsible popout center col m6 s12" data-collapsible="accordion">
+    <li class="collapsible-header"><h4>Servicios Vehiculos</h4></li>
+    <li ng-repeat="servicio in servicios_vehiculos">
+      <div class="collapsible-header">
+        <i class="material-icons">contacts</i>Nombre: {{servicio.nombre}}
+        <a class="right" ng-click="editServiciosVehiculos(servicio)">
+          <i class="material-icons right">mode_edit</i>
+        </a>
+      </div>
+      <div class="collapsible-body">
+        <ul class="collection">
+          <li class="collection-item">{{servicio.nombre}}</li>
+          <li class="collection-item">{{servicio.descripcion}}</li>
+        </ul>
+      </div>
+    </li>
+  </ul>
+  <ul class="collapsible popout center col m6 s12" data-collapsible="accordion">
+    <li class="collapsible-header"><h4>Servicios Trabajadores</h4></li>
+    <li ng-repeat="servicio in funciones_trabajadores">
+      <div class="collapsible-header">
+        <i class="material-icons">contacts</i>{{servicio.nombre}}
+        <a class="right" ng-click="editFuncionesTrab(servicio)">
+          <i class="material-icons right">mode_edit</i>
+        </a>
+      </div>
+      <div class="collapsible-body">
+        <ul class="collection">
+          <li class="collection-item">{{servicio.nombre}}</li>
+          <li class="collection-item">{{servicio.descripcion}}</li>
+        </ul>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<div id="cuenta" class="modal">
+  <div class="modal-content">
+    <h4>Cuenta</h4>
+    <div class="row">
+      <form class="col s12" ng-model="cuenta">
+        <div class="row">
+          <div class="input-field col s6">
+            <input id="account" type="text" class="validate" ng-model="cuenta.usuario">
+            <label for="account">Usuario</label>
+          </div>
+          <div class="input-field col s6">
+            <input id="rut" type="text" class="validate" ng-model="cuenta.rut">
+            <label for="rut">Rut</label>
+          </div>
+          <div class="input-field col s6">
+            <input id="last_name" type="text" class="validate" ng-model="cuenta.clave">
+            <label for="last_name">Clave</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="password" type="text" class="validate" ng-model="cuenta.nombre">
+            <label for="password">Nombre</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="movil" type="text" class="validate" ng-model="cuenta.razon_social">
+            <label for="movil">Razón Social</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col s12">
+            <label>Perfil</label>
+            <select class="browser-default" ng-model="cuenta.perfil" required="required">
+              <option value="" disabled>Perfil</option>
+              <option ng-repeat="perfil in perfiles" ng-value="perfil.id">{{perfil.nombre}}</option>
+            </select>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <a class=" modal-action modal-close waves-effect waves-green btn" ng-click="crearCuenta(cuenta)" ng-hide="editing">Crear Contacto</a>
+    <a class=" modal-action modal-close waves-effect waves-green btn" ng-click="updateUser(usuario)" ng-show="editing">Editar Contacto</a>
+    <a class=" modal-action modal-close waves-effect waves-green btn-flat" ng-click="closeModal()">Cancelar</a>
+  </div>
+</div>
+
+<div id="contrat" class="modal">
+  <div class="modal-content">
+    <h4>Contratista</h4>
+    <div class="row">
+      <form class="col s12" ng-model="contat" ng-init="contat.cuentas = [{}]">
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="contrat_name" type="text" class="validate" ng-model="contat.nombre">
+            <label for="password">Nombre</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="contrat_razon" type="text" class="validate" ng-model="contat.razon_social">
+            <label for="movil">Razón Social</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="contrat_rut" type="text" class="validate" ng-model="contat.rut">
+            <label for="rut">Rut</label>
+          </div>
+        </div>
+        <div class="row"  ng-repeat="c in contat.cuentas">
+          <div class="input-field col s6">
+            <input id="contrat_user" type="text" class="validate" ng-model="c.usuario">
+            <label for="account">Usuario</label>
+          </div>
+          <div class="input-field col s6">
+            <input id="contrat_clave" type="password" class="validate" ng-model="c.clave">
+            <label for="last_name">Clave</label>
+          </div>
+          <div class="col s6">
+            <label>Perfil</label>
+            <select class="browser-default" ng-model="c.perfil" required="required">
+              <option value="" disabled>Perfil</option>
+              <option ng-repeat="perfil in perfiles" ng-value="perfil.id">{{perfil.nombre}}</option>
+            </select>
+          </div>
+        </div>
+        <a class="waves-effect waves-green btn" ng-click="contat.cuentas.push({})" >Add Cuenta</a>
+      </form>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <a class=" modal-action modal-close waves-effect waves-green btn" ng-click="crearContratista(contat)" ng-hide="editing">Crear Contratista</a>
+    <a class=" modal-action modal-close waves-effect waves-green btn" ng-click="updateContratista(contat)" ng-show="editing">Editar Contratista</a>
+    <a class=" modal-action modal-close waves-effect waves-green btn-flat" ng-click="closeModal()">Cancelar</a>
+  </div>
+</div>
+
+<div id="servicioBrigadas" class="modal">
+  <div class="modal-content">
+    <h4>Servicio Brigadas</h4>
+    <div class="row">
+      <form class="col s12" ng-model="servicio">
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="nombreServBrig" type="text" class="validate" ng-model="servicio.nombre">
+            <label for="nombreServBrig">Nombre</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="descServbrigada" type="text" class="validate" ng-model="servicio.descripcion">
+            <label for="descServbrigada">Descripción</label>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <a class=" modal-action modal-close waves-effect waves-green btn" ng-click="crearServicioBrigada(servicio)" ng-hide="editing">Crear Servicio</a>
+    <a class=" modal-action modal-close waves-effect waves-green btn" ng-click="updateServiciosBrigada(servicio)" ng-show="editing">Editar Servicio</a>
+    <a class=" modal-action modal-close waves-effect waves-green btn-flat" ng-click="closeModal()">Cancelar</a>
+  </div>
+</div>
+
+<div id="servicioVehiculos" class="modal">
+  <div class="modal-content">
+    <h4>Servicio Vehiculos</h4>
+    <div class="row">
+      <form class="col s12" ng-model="servicio">
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="nombreServVe" type="text" class="validate" ng-model="servicio.nombre">
+            <label for="nombreServBrig">Nombre</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="descServVe" type="text" class="validate" ng-model="servicio.descripcion">
+            <label for="descServVe">Descripción</label>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <a class=" modal-action modal-close waves-effect waves-green btn" ng-click="crearServicioVehiculo(servicio)" ng-hide="editing">Crear Servicio</a>
+    <a class=" modal-action modal-close waves-effect waves-green btn" ng-click="updateServicioVehiculo(servicio)" ng-show="editing">Editar Servicio</a>
+    <a class=" modal-action modal-close waves-effect waves-green btn-flat" ng-click="closeModal()">Cancelar</a>
+  </div>
+</div>
+
+<div id="servicioTrabajadores" class="modal">
+  <div class="modal-content">
+    <h4>Funciones Trabajador</h4>
+    <div class="row">
+      <form class="col s12" ng-model="servicio">
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="nombreFuncion" type="text" class="validate" ng-model="servicio.nombre">
+            <label for="nombreFuncion">Nombre</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="descFuncion" type="text" class="validate" ng-model="servicio.descripcion">
+            <label for="descFuncion">Descripción</label>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <a class=" modal-action modal-close waves-effect waves-green btn" ng-click="crearFuncionTrabajador(servicio)" ng-hide="editing">Crear Función</a>
+    <a class=" modal-action modal-close waves-effect waves-green btn" ng-click="updateFuncionTrabajador(servicio)" ng-show="editing">Editar Función</a>
+    <a class=" modal-action modal-close waves-effect waves-green btn-flat" ng-click="closeModal()">Cancelar</a>
+  </div>
+</div>
+
+<div id="localizaciones" class="modal">
+  <div class="modal-content">
+    <h4>Localización</h4>
+    <div class="row">
+      <form class="col s12" ng-model="localizacion">
+        <div class="row">
+          <div class="col s12">
+            <label>Tipo de localización</label>
+            <select class="browser-default" ng-model="localizacion.tipo" required="required">
+              <option value="" disabled>Tipo</option>
+              <option ng-value="Zona">Zona</option>
+              <option ng-value="Establecimiento">Establecimiento</option>
+            </select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="nombreLocalizacion" type="text" class="validate" ng-model="localizacion.nombre">
+            <label for="nombreLocalizacion">Nombre</label>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <a class=" modal-action modal-close waves-effect waves-green btn" ng-click="crearLocalizacion(localizacion)" ng-hide="editing">Crear Localización</a>
+    <a class=" modal-action modal-close waves-effect waves-green btn" ng-click="updateLocalizacion(localizacion)" ng-show="editing">Editar Localización</a>
+    <a class=" modal-action modal-close waves-effect waves-green btn-flat" ng-click="closeModal()">Cancelar</a>
+  </div>
+</div>

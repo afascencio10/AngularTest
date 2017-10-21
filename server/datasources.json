@@ -1,0 +1,15 @@
+{
+  "db": {
+    "name": "db",
+    "connector": "memory"
+  },
+  "mydb": {
+    "host": "contratistassendaschile.cfxb4xmduaoi.us-west-2.rds.amazonaws.com",
+    "port": 3306,
+    "database": "contratistasSendas",
+    "password": "Santi77Mabel",
+    "name": "mydb",
+    "connector": "mysql",
+    "user": "sendas"
+  }
+}

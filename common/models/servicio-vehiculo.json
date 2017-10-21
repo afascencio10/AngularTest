@@ -1,0 +1,33 @@
+{
+  "name": "servicio_vehiculo",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "id_vehiculo": {
+      "type": "number",
+      "required": true
+    },
+    "id_servicio_vehiculos": {
+      "type": "number",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "vehiculo": {
+      "type": "belongsTo",
+      "model": "vehiculo",
+      "foreignKey": "id_vehiculo"
+    },
+    "serviciosVehiculos": {
+      "type": "belongsTo",
+      "model": "servicios_vehiculos",
+      "foreignKey": "id_servicio_vehiculos"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

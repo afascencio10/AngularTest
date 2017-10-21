@@ -1,0 +1,104 @@
+<header-admin></header-admin>
+
+<div id="contratista" class="row">
+  <h3 class="center">Contratista</h3>
+  <form class="col s12" ng-model="contratista">
+    <div class="row">
+      <div class="col s6">
+        <label for="nombre">Nombre</label>
+        <input disabled id="nombre" type="text" ng-model="contratista.nombre" ng-value="contratista.nombre" class="validate">
+      </div>
+      <div class="col s6">
+        <label for="razon_Social">Razon Social</label>
+        <input disabled id="razon_Social" ng-model="contratista.razon_social" ng-value="contratista.razon_social" type="text" class="validate">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col s12">
+        <label for="disabled">Rut</label>
+        <input disabled id="disabled" ng-model="contratista.rut" ng-value="contratista.rut" type="text" class="validate">
+      </div>
+    </div>
+  </form>
+</div>
+
+<div id="contactos" class="row">
+  <ul class="collapsible popout center" data-collapsible="accordion">
+    <li class="collapsible-header"><h4>Contactos</h4></li>
+    <li ng-repeat="contacto in contactos">
+      <div class="collapsible-header">
+        <i class="material-icons">contacts</i>{{contacto.nombre}} {{contacto.apellido}}
+        <!--<a class="right" ng-click="editEmpresa(contacto)">-->
+          <!--<i class="material-icons right">mode_edit</i>-->
+        <!--</a>-->
+      </div>
+      <div class="collapsible-body">
+        <ul class="collection">
+          <li class="collection-item">{{contacto.nombre}} {{contacto.apellido}}</li>
+          <li class="collection-item">{{contacto.cargo}}</li>
+          <li class="collection-item">{{contacto.telefono}}</li>
+          <li class="collection-item">{{contacto.movil}}</li>
+          <li class="collection-item">{{contacto.tipo_localizacion}}, {{contacto.localizacion}}</li>
+          <li class="collection-item">{{contacto.correo}}</li>
+        </ul>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<div id="Brigadas" class="row">
+  <ul class="collapsible popout center" data-collapsible="accordion">
+    <li class="collapsible-header"><h4>Brigadas por Servicio</h4></li>
+    <li ng-repeat="brigada in brigadas">
+      <div class="collapsible-header">
+        <i class="material-icons">work</i>Servicio: {{brigada.servicio.nombre}}, {{brigada.numero_brigadas}} brigadas
+        <!--<a class="right" ng-click="editEmpresa(contacto)">-->
+          <!--<i class="material-icons right">mode_edit</i>-->
+        <!--</a>-->
+      </div>
+      <div class="collapsible-body">
+      </div>
+    </li>
+  </ul>
+</div>
+
+<div id="vehiculos/trabajadores" class="row">
+  <ul class="collapsible popout center col m6" data-collapsible="accordion">
+    <li class="collapsible-header"><h4>Vehiculos</h4></li>
+    <li ng-repeat="vehiculo in vehiculos">
+      <div class="collapsible-header">
+        <i class="material-icons">directions_car</i>{{vehiculo.placa_patente}}
+        <!--<a class="right" ng-click="editVehiculo(vehiculo)">-->
+          <!--<i class="material-icons right">mode_edit</i>-->
+        <!--</a>-->
+      </div>
+      <div class="collapsible-body">
+        <ul class="collection">
+          <li class="collection-item">{{vehiculo.placa_patente}}</li>
+          <li class="collection-item">{{vehiculo.anio | date:"yyyy"}}</li>
+          <li class="collection-item" ng-if="vehiculo.activo">En Servicio</li>
+          <li class="collection-item" ng-if="!vehiculo.activo">Fuera de Servicio</li>
+          <li class="collection-item">{{vehiculo.servicio.nombre}}</li>
+        </ul>
+      </div>
+    </li>
+  </ul>
+  <ul class="collapsible popout center col m6" data-collapsible="accordion">
+    <li class="collapsible-header"><h4>Personal en Terreno</h4></li>
+    <li ng-repeat="personal in trabajadores">
+      <div class="collapsible-header">
+        <i class="material-icons">account_circle</i>{{personal.nombre}} {{personal.apellido}}
+        <!--<a class="right" ng-click="editTrabajador(personal)">-->
+          <!--<i class="material-icons right">mode_edit</i>-->
+        <!--</a>-->
+      </div>
+      <div class="collapsible-body">
+        <ul class="collection">
+          <li class="collection-item">{{personal.nombre}} {{personal.apellido}}</li>
+          <li class="collection-item">{{personal.rut}}</li>
+          <li class="collection-item" ng-repeat="funcion in personal.funciones">Funcion {{$index+1}}: {{funcion.funcion.nombre}}</li>
+        </ul>
+      </div>
+    </li>
+  </ul>
+</div>

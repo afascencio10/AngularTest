@@ -1,0 +1,39 @@
+{
+  "name": "ubicacion_brigada",
+  "plural": "ubicacion_brigadas",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "id_ubicacion": {
+      "type": "number",
+      "required": true
+    },
+    "id_brigada": {
+      "type": "number",
+      "required": true
+    },
+    "activa": {
+      "type": "boolean",
+      "required": true,
+      "default": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "brigada": {
+      "type": "belongsTo",
+      "model": "brigada",
+      "foreignKey": "id_brigada"
+    },
+    "localizacion": {
+      "type": "belongsTo",
+      "model": "localizacion",
+      "foreignKey": "id_ubicacion"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

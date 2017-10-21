@@ -1,0 +1,33 @@
+{
+  "name": "servicio_brigada",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "id_brigada": {
+      "type": "number",
+      "required": true
+    },
+    "id_servicio": {
+      "type": "number",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "brigada": {
+      "type": "belongsTo",
+      "model": "brigada",
+      "foreignKey": "id_brigada"
+    },
+    "servicio": {
+      "type": "belongsTo",
+      "model": "servicio",
+      "foreignKey": "id_servicio"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

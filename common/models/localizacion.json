@@ -1,0 +1,29 @@
+{
+  "name": "localizacion",
+  "plural": "localizaciones",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "tipo": {
+      "type": "string",
+      "required": true
+    },
+    "nombre": {
+      "type": "string",
+      "required": true
+    },
+    "longitud": {
+      "type": "number"
+    },
+    "latitud": {
+      "type": "number"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

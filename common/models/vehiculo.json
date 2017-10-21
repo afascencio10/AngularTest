@@ -1,0 +1,55 @@
+{
+  "name": "vehiculo",
+  "plural": "vehiculos",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "placa_patente": {
+      "type": "string",
+      "required": true
+    },
+    "anio": {
+      "type": "date",
+      "required": true
+    },
+    "activo": {
+      "type": "boolean",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "servicio_vehiculo": {
+      "type": "hasMany",
+      "model": "servicios_vehiculos",
+      "foreignKey": "id_vehiculo",
+      "through": "servicio_vehiculo"
+    },
+    "ubicacionVehiculo": {
+      "type": "hasMany",
+      "model": "localizacion",
+      "foreignKey": "id_vehiculo",
+      "through": "ubicacion_vehiculo"
+    },
+    "servicio_veh": {
+      "type": "hasMany",
+      "model": "servicio_vehiculo",
+      "foreignKey": "id_vehiculo"
+    },
+    "ubicacionVeh": {
+      "type": "hasMany",
+      "model": "ubicacion_vehiculo",
+      "foreignKey": "id_vehiculo"
+    },
+    "vehiculos_contratista": {
+      "type": "hasMany",
+      "model": "vehiculo_contratista",
+      "foreignKey": "id_vehiculo"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

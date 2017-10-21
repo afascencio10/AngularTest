@@ -1,0 +1,42 @@
+{
+  "name": "cuenta",
+  "plural": "cuentas",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "usuario": {
+      "type": "string",
+      "required": true
+    },
+    "clave": {
+      "type": "string",
+      "required": true,
+      "default": "1234567890"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "contratista": {
+      "type": "hasMany",
+      "model": "contratista",
+      "foreignKey": "id_cuenta",
+      "through": "cuenta_contratista"
+    },
+    "perfiles": {
+      "type": "hasMany",
+      "model": "perfil",
+      "foreignKey": "id_cuenta",
+      "through": "perfil_cuenta"
+    },
+    "cuentaContratista": {
+      "type": "hasMany",
+      "model": "cuenta_contratista",
+      "foreignKey": "id_cuenta"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

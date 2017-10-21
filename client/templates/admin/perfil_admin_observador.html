@@ -1,0 +1,22 @@
+<header-observador></header-observador>
+
+<div id="contratistas" class="row">
+  <ul class="collapsible popout center" data-collapsible="accordion">
+    <li class="collapsible-header"><h4>Contratista</h4></li>
+    <li ng-repeat="contratista in contratistas">
+      <div class="collapsible-header">
+        <i class="material-icons">contacts</i>Contratista:{{contratista.nombre}}
+        <a class="right" ng-click="seeContratista(contratista.cuentas[0].id)">
+          <i class="material-icons right">remove_red_eye</i>
+        </a>
+      </div>
+      <div class="collapsible-body">
+        <ul class="collection">
+          <li class="collection-item">{{contratista.rut}}</li>
+          <li class="collection-item">{{contratista.nombre}}</li>
+          <li class="collection-item">{{contratista.razon_social}}</li>
+        </ul>
+      </div>
+    </li>
+  </ul>
+</div>

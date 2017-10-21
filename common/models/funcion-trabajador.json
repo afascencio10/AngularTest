@@ -1,0 +1,44 @@
+{
+  "name": "funcion_trabajador",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "tipo": {
+      "type": "string",
+      "required": true
+    },
+    "id_funcion": {
+      "type": "number",
+      "required": true
+    },
+    "id_trabajador": {
+      "type": "number",
+      "required": true
+    },
+    "fecha_inicio": {
+      "type": "date",
+      "required": true
+    },
+    "fecha_fin": {
+      "type": "date"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "funcion": {
+      "type": "belongsTo",
+      "model": "funcion",
+      "foreignKey": "id_funcion"
+    },
+    "trabajador": {
+      "type": "belongsTo",
+      "model": "trabajador",
+      "foreignKey": "id_trabajador"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

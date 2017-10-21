@@ -1,0 +1,61 @@
+{
+  "name": "trabajador",
+  "plural": "trabajadores",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "rut": {
+      "type": "string",
+      "required": true
+    },
+    "nombre": {
+      "type": "string",
+      "required": true
+    },
+    "apellido": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "contratista_trabajador": {
+      "type": "hasMany",
+      "model": "contratista",
+      "foreignKey": "id_trabajador",
+      "through": "contratista_trabajador"
+    },
+    "funciones_trabajador": {
+      "type": "hasMany",
+      "model": "funcion",
+      "foreignKey": "id_trabajador",
+      "through": "funcion_trabajador"
+    },
+    "ubicacionTrabajador": {
+      "type": "hasMany",
+      "model": "localizacion",
+      "foreignKey": "id_trabajador",
+      "through": "ubicacion_trabajador"
+    },
+    "contratista_trabaj": {
+      "type": "hasMany",
+      "model": "contratista_trabajador",
+      "foreignKey": "id_trabajador"
+    },
+    "funciones_trabaj": {
+      "type": "hasMany",
+      "model": "funcion_trabajador",
+      "foreignKey": "id_trabajador"
+    },
+    "ubicacionTrabaj": {
+      "type": "hasMany",
+      "model": "ubicacion_trabajador",
+      "foreignKey": "id_trabajador"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

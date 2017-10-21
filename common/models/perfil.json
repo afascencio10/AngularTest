@@ -1,0 +1,30 @@
+{
+  "name": "perfil",
+  "plural": "perfiles",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "nombre": {
+      "type": "string",
+      "required": true
+    },
+    "descripcion": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "cuentas": {
+      "type": "hasMany",
+      "model": "cuenta",
+      "foreignKey": "id_cuenta",
+      "through": "perfil_cuenta"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

@@ -1,0 +1,29 @@
+{
+  "name": "funcion",
+  "plural": "funciones",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "nombre": {
+      "type": "string",
+      "required": true
+    },
+    "descripcion": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "trabajadores_funcion": {
+      "type": "hasMany",
+      "model": "trabajador",
+      "foreignKey": "id_funcion",
+      "through": "funcion_trabajador"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

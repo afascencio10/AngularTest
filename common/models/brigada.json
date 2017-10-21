@@ -1,0 +1,46 @@
+{
+  "name": "brigada",
+  "plural": "brigadas",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "numero_brigadas": {
+      "type": "number",
+      "required": true
+    },
+    "id_contratista": {
+      "type": "number",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "contratista": {
+      "type": "belongsTo",
+      "model": "contratista",
+      "foreignKey": "id_contratista"
+    },
+    "servicio": {
+      "type": "hasMany",
+      "model": "servicio",
+      "foreignKey": "id_brigada",
+      "through": "servicio_brigada"
+    },
+    "ubicacionBrigada": {
+      "type": "hasMany",
+      "model": "localizacion",
+      "foreignKey": "id_brigada",
+      "through": "ubicacion_brigada"
+    },
+    "ubicBrigada": {
+      "type": "hasMany",
+      "model": "ubicacion_brigada",
+      "foreignKey": "id_brigada"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

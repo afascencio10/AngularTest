@@ -1,0 +1,98 @@
+.page-footer {
+  position: relative;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem; }
+
+.icon-fenosa {
+  padding: 10px;
+  width: 20%;
+  height: auto; }
+
+.login-form {
+  margin: 8%; }
+
+/* label color */
+.input-field label {
+  color: #1a237e; }
+
+/* label focus color */
+.input-field input[type=text]:focus + label {
+  color: #1a237e; }
+
+/* label underline focus color */
+.input-field input[type=text]:focus {
+  border-bottom: 1px solid #1a237e;
+  box-shadow: 0 1px 0 0 #1a237e; }
+
+/* valid color */
+.input-field input[type=text].valid {
+  border-bottom: 1px solid #1a237e;
+  box-shadow: 0 1px 0 0 #1a237e; }
+
+/* invalid color */
+.input-field input[type=text].invalid {
+  border-bottom: 1px solid #1a237e;
+  box-shadow: 0 1px 0 0 #1a237e; }
+
+/* label focus color */
+.input-field input[type=password]:focus + label {
+  color: #1a237e; }
+
+.input-field input[type=password]:focus {
+  border-bottom: 1px solid #1a237e;
+  box-shadow: 0 1px 0 0 #1a237e; }
+
+/* valid color */
+.input-field input[type=password].valid {
+  border-bottom: 1px solid #1a237e;
+  box-shadow: 0 1px 0 0 #1a237e; }
+
+/* invalid color */
+.input-field input[type=password].invalid {
+  border-bottom: 1px solid #1a237e;
+  box-shadow: 0 1px 0 0 #1a237e; }
+
+/* icon prefix focus color */
+.input-field .prefix.active {
+  color: #1a237e; }
+
+ui-view {
+  min-height: 70vh; }
+
+body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  min-height: 100vh;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column; }
+
+main {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 auto;
+          flex: 1 0 auto; }
+
+.bottones-zonas {
+  margin-top: 10%; }
+  .bottones-zonas .btn-large {
+    width: 100%;
+    margin: 1rem; }
+
+.bottones-contratas {
+  margin-top: 5%; }
+  .bottones-contratas .btn {
+    width: 100%;
+    margin: 0.2rem; }
+
+.letra-grande td {
+  font-size: 1.8em; }
+
+body {
+  font-family: 'Muli', sans-serif; }
+
+.capitalize::first-letter {
+  text-transform: uppercase; }

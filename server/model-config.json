@@ -1,0 +1,124 @@
+{
+  "_meta": {
+    "sources": [
+      "loopback/common/models",
+      "loopback/server/models",
+      "../common/models",
+      "./models"
+    ],
+    "mixins": [
+      "loopback/common/mixins",
+      "loopback/server/mixins",
+      "../node_modules/loopback-include-through-mixin",
+      "../common/mixins",
+      "./mixins"
+    ]
+  },
+  "User": {
+    "dataSource": "db"
+  },
+  "AccessToken": {
+    "dataSource": "db",
+    "public": false
+  },
+  "ACL": {
+    "dataSource": "db",
+    "public": false
+  },
+  "RoleMapping": {
+    "dataSource": "db",
+    "public": false
+  },
+  "Role": {
+    "dataSource": "db",
+    "public": false
+  },
+  "cuenta": {
+    "dataSource": "mydb",
+    "public": true
+  },
+  "contratista": {
+    "dataSource": "mydb",
+    "public": true
+  },
+  "contacto": {
+    "dataSource": "mydb",
+    "public": true
+  },
+  "cuenta_contratista": {
+    "dataSource": "mydb",
+    "public": true
+  },
+  "contacto_contratista": {
+    "dataSource": "mydb",
+    "public": true
+  },
+  "perfil": {
+    "dataSource": "mydb",
+    "public": true
+  },
+  "perfil_cuenta": {
+    "dataSource": "mydb",
+    "public": true
+  },
+  "servicio": {
+    "dataSource": "mydb",
+    "public": true
+  },
+  "brigada": {
+    "dataSource": "mydb",
+    "public": true
+  },
+  "servicio_brigada": {
+    "dataSource": "mydb",
+    "public": true
+  },
+  "vehiculo": {
+    "dataSource": "mydb",
+    "public": true
+  },
+  "vehiculo_contratista": {
+    "dataSource": "mydb",
+    "public": true
+  },
+  "servicios_vehiculos": {
+    "dataSource": "mydb",
+    "public": true
+  },
+  "servicio_vehiculo": {
+    "dataSource": "mydb",
+    "public": true
+  },
+  "trabajador": {
+    "dataSource": "mydb",
+    "public": true
+  },
+  "funcion": {
+    "dataSource": "mydb",
+    "public": true
+  },
+  "contratista_trabajador": {
+    "dataSource": "mydb",
+    "public": true
+  },
+  "funcion_trabajador": {
+    "dataSource": "mydb",
+    "public": true
+  },
+  "localizacion": {
+    "dataSource": "mydb",
+    "public": true
+  },
+  "ubicacion_brigada": {
+    "dataSource": "mydb",
+    "public": true
+  },
+  "ubicacion_vehiculo": {
+    "dataSource": "mydb",
+    "public": true
+  },
+  "ubicacion_trabajador": {
+    "dataSource": "mydb",
+    "public": true
+  }
+}
